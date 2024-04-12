@@ -5,7 +5,7 @@ apt autoremove --purge snapd -y
 apt-mark hold snapd
 
 # Enable xterm.js / serial console (proxmox)
-systemctl enable serial-getty@ttyS0.service
+systemctl enable serial-getty@ttyS0.services
 systemctl start serial-getty@ttyS0.service
 
 # Init /etc/rancher/k3s/config.yaml from source
