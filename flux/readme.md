@@ -5,6 +5,7 @@ export GITHUB_TOKEN=<github pat with repo scope>
 
 ```bash
 flux bootstrap github \
+  --components-extra=image-reflector-controller,image-automation-controller \
   --token-auth \
   --owner=Twinki14 \
   --repository=CozyLab \
