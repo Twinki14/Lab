@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   imageRepositoryRef:
-    name: miha-bot
+    name: miha
   filterTags:
     pattern: '^(cutting-edge-|edge-).*?-(?P<timestamp>\d+)$'
     extract: '$timestamp'
