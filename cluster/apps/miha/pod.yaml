@@ -1,0 +1,89 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: miha
+  labels:
+    app: miha
+spec:
+  containers:
+  - name: redis
+    image: redislabs/redismod:latest
+    args:
+    - --appendonly
+    - 'yes'
+    - --maxmemory
+    - 256Mb
+    - --loadmodule
+    - /usr/lib/redis/modules/rejson.so
+    - --loadmodule
+    - /usr/lib/redis/modules/redisearch.so
+    # volumeMounts:
+    # - name: miha-redis-data
+    #  mountPath: /data
+    resources:
+      requests:
+        cpu: 250m
+        memory: 256Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
+    ports:
+    - containerPort: 6379
+    readinessProbe:
+      exec:
+        command:
+        - redis-cli
+        - ping
+      initialDelaySeconds: 5
+      periodSeconds: 5
+    livenessProbe:
+      exec:
+        command:
+        - redis-cli
+        - ping
+      initialDelaySeconds: 5
+      periodSeconds: 5
+  - name: miha
+    image: ghcr.io/twinki14/miha:latest # {"$imagepolicy": "flux-system:miha-latest"}
+    resources:
+      requests:
+        cpu: 250m
+        memory: 512Mi
+      limits:
+        cpu: 250m
+        memory: 512Mi
+    env:
+    - name: DOTNET_REDIS__HOST
+      value: "localhost"
+    - name: DOTNET_REDIS__PORT
+      value: "6379"
+    - name: ASPNETCORE_ENVIRONMENT
+      value: Production
+    - name: DOTNET_REDIS__SEEDING__GUILD__AnnouncementChannel
+      value: '397604957962108931'
+    - name: DOTNET_REDIS__SEEDING__GUILD__AnnouncementRoleId
+      value: '517819199863914516'
+    - name: DOTNET_REDIS__SEEDING__GUILD__WeeklyScheduleChannel
+      value: '480114580664877060'
+    - name: DOTNET_DISCORD__TOKEN
+      valueFrom:
+        secretKeyRef:
+          name: miha-discord
+          key: token
+    - name: DOTNET_DISCORD__GUILD
+      valueFrom:
+        secretKeyRef:
+          name: miha-discord
+          key: guild-id
+    readinessProbe:
+      httpGet:
+        path: /healthz
+        port: 8000
+      failureThreshold: 2
+      periodSeconds: 5
+    livenessProbe:
+      httpGet:
+        path: /healthz
+        port: 8000
+      failureThreshold: 2
+      periodSeconds: 30

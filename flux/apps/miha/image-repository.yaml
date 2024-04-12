@@ -1,0 +1,8 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: miha
+  namespace: flux-system
+spec:
+  image: ghcr.io/twinki14/miha
+  interval: 10s
