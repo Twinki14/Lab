@@ -14,29 +14,70 @@ spec:
       interval: 12h
   # https://github.com/democratic-csi/democratic-csi/tree/master/examples
   values:
+    # driver only works with 1.16+
     csiDriver:
+      # should be globally unique for a given cluster
       name: "org.democratic-csi.zfs-local-dataset"
       attachRequired: false
-      storageCapacity: true # With storage capacity tracking, the scheduler filters out nodes which do not have enough capacity.
-      fsGroupPolicy: File # fsGroupChangePolicy
+      storageCapacity: true
+      fsGroupPolicy: File
+
     storageClasses:
-    - name: zfs-dataset
-      annotations:
-        storageclass.kubernetes.io/is-default-class: "true"
+    - name: zfs-local-dataset
+      defaultClass: true
       reclaimPolicy: Delete
-      volumeBindingMode: Immediate
+      volumeBindingMode: WaitForFirstConsumer
       # distributed support is not yet ready for expansion
       allowVolumeExpansion: false
-      mountOptions: ["noatime"]
+      parameters:
+        fsType: zfs
+
+    # if your cluster supports snapshots you may enable below
+    # volumeSnapshotClasses: []
+    #- name: zfs-local-dataset
+    #  secrets:
+    #    snapshotter-secret:
+
+    controller:
+      enabled: true
+      strategy: node
+      externalProvisioner:
+        extraArgs:
+        - --leader-election=false
+        - --node-deployment=true
+        - --node-deployment-immediate-binding=false
+        - --feature-gates=Topology=true
+        - --strict-topology=true
+        - --enable-capacity=true
+        - --capacity-ownerref-level=1
+
+      externalAttacher:
+        enabled: false
+
+      # distributed support is not yet ready
+      externalResizer:
+        enabled: false
+
+      externalSnapshotter:
+        enabled: true
+        extraArgs:
+        - --leader-election=false
+        - --node-deployment=true
+
     driver:
       config:
-        driver: zfs-local-dataset
-        zfs:
-          datasetParentName: nvme/k8s/v
-          detachedSnapshotsDatasetParentName: nvme/k8s/s
-          datasetEnableQuotas: true
-          datasetEnableReservation: false
-          datasetProperties:
-            compression: lz4
-            atime: off
-            overlay: on
+        # please see the most up-to-date example of the corresponding config here:
+        # https://github.com/democratic-csi/democratic-csi/tree/master/examples
+        # YOU MUST COPY THE DATA HERE INLINE!
+        driver:
+          config:
+            driver: zfs-local-dataset
+            zfs:
+              datasetParentName: nvme/k8s/v
+              detachedSnapshotsDatasetParentName: nvme/k8s/s
+              datasetEnableQuotas: true
+              datasetEnableReservation: false
+              datasetProperties:
+                compression: lz4
+                atime: off
+                overlay: on
