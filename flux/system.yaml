@@ -11,7 +11,7 @@ spec:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
-  path: ./cluster/system
+  path: ./cluster/system/controllers
   prune: true # remove any elements later removed from the above path
   wait: true
 ---
@@ -28,7 +28,7 @@ spec:
     kind: GitRepository
     name: flux-system
     namespace: flux-system
-  path: ./cluster/system
+  path: ./cluster/system/configs
   prune: true # remove any elements later removed from the above path
   wait: true
   dependsOn:
