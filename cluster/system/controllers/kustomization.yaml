@@ -5,6 +5,7 @@ metadata:
 namespace: kube-system
 
 resources:
+- cert-manager
 - democratic-csi
 - sealed-secrets
 - secret-generator
