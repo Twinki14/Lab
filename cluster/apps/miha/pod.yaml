@@ -17,9 +17,9 @@ spec:
     - /usr/lib/redis/modules/rejson.so
     - --loadmodule
     - /usr/lib/redis/modules/redisearch.so
-    # volumeMounts:
-    # - name: miha-redis-data
-    #  mountPath: /data
+    volumeMounts:
+    - name: redis
+      mountPath: /data
     resources:
       requests:
         cpu: 250m
@@ -87,3 +87,19 @@ spec:
         port: 8000
       failureThreshold: 2
       periodSeconds: 30
+  volumes:
+  - name: redis
+    persistentVolumeClaim:
+      claimName: miha-redis
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: miha-redis
+spec:
+  storageClassName: zfs-dataset
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
