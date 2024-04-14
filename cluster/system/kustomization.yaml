@@ -7,3 +7,4 @@ namespace: kube-system
 resources:
 - democratic-csi
 - sealed-secrets
+- secret-generator
