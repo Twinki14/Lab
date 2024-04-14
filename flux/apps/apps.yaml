@@ -15,4 +15,5 @@ spec:
   prune: true # remove any elements later removed from the above path
   wait: true
   dependsOn:
-  - name: system
+  - name: system-controllers
+  - name: system-configs
