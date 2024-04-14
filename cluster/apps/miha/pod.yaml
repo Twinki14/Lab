@@ -97,7 +97,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: miha-redis
 spec:
-  storageClassName: zfs-dataset
+  storageClassName: zfs-local-dataset
   accessModes:
   - ReadWriteOnce
   resources:
