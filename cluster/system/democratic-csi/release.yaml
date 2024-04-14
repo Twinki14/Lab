@@ -14,6 +14,9 @@ spec:
       interval: 12h
   # https://github.com/democratic-csi/democratic-csi/tree/master/examples
   values:
+    csiDriver:
+      name: nvme-csi
+
     driver: zfs-local-dataset
 
     zfs:
