@@ -15,13 +15,19 @@ spec:
   # https://github.com/democratic-csi/democratic-csi/tree/master/examples
   values:
     csiDriver:
-      name: nvme-csi
-
-    driver: zfs-local-dataset
-
-    zfs:
-      datasetParentName: nvme/k8s/volumes
-      detachedSnapshotsDatasetParentName: nvme/k8s/snapshots
-
-      datasetEnableQuotas: true
-      datasetEnableReservation: false
+      name: "org.democratic-csi.zfs-local-dataset"
+      attachRequired: false
+      storageCapacity: true # With storage capacity tracking, the scheduler filters out nodes which do not have enough capacity.
+      fsGroupPolicy: File # fsGroupChangePolicy
+    driver:
+      config:
+        driver: zfs-local-dataset
+        zfs:
+          datasetParentName: nvme/k8s/v
+          detachedSnapshotsDatasetParentName: nvme/k8s/s
+          datasetEnableQuotas: true
+          datasetEnableReservation: false
+          datasetProperties:
+            compression: lz4
+            atime: off
+            overlay: on
