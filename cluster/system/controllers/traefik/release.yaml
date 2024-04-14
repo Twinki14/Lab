@@ -21,3 +21,7 @@ spec:
       interval: 12h
   # https://github.com/traefik/traefik-helm-chart/blob/master/traefik/values.yaml
   values:
+    service:
+      enabled: true
+      single: true
+      type: ClusterIP
