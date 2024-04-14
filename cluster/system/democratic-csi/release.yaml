@@ -69,15 +69,13 @@ spec:
         # please see the most up-to-date example of the corresponding config here:
         # https://github.com/democratic-csi/democratic-csi/tree/master/examples
         # YOU MUST COPY THE DATA HERE INLINE!
-        driver:
-          config:
-            driver: zfs-local-dataset
-            zfs:
-              datasetParentName: nvme/k8s/v
-              detachedSnapshotsDatasetParentName: nvme/k8s/s
-              datasetEnableQuotas: true
-              datasetEnableReservation: false
-              datasetProperties:
-                compression: lz4
-                atime: off
-                overlay: on
+        driver: zfs-local-dataset
+        zfs:
+          datasetParentName: nvme/k8s/v
+          detachedSnapshotsDatasetParentName: nvme/k8s/s
+          datasetEnableQuotas: true
+          datasetEnableReservation: false
+          datasetProperties:
+            compression: lz4
+            atime: off
+            overlay: on
