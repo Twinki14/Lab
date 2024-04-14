@@ -1,7 +1,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: democratic-csi-zfs-local-dataset-provisioner
+  name: zfs-local-dataset-provisioner
 spec:
   interval: 30m
   chart:
@@ -19,6 +19,15 @@ spec:
       attachRequired: false
       storageCapacity: true # With storage capacity tracking, the scheduler filters out nodes which do not have enough capacity.
       fsGroupPolicy: File # fsGroupChangePolicy
+    storageClasses:
+    - name: zfs-dataset
+      annotations:
+        storageclass.kubernetes.io/is-default-class: "true"
+      reclaimPolicy: Delete
+      volumeBindingMode: Immediate
+      # distributed support is not yet ready for expansion
+      allowVolumeExpansion: false
+      mountOptions: ["noatime"]
     driver:
       config:
         driver: zfs-local-dataset
