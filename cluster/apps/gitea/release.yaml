@@ -67,7 +67,9 @@ spec:
 
       additionalConfigFromEnvs:
       - name: GITEA_REQUIRE_SIGNIN_VIEW
-        value: true
+        value: 'true'
+      - name: GITEA_DISABLE_REGISTRATION
+        value: 'true'
 
       metrics:
         enabled: false
