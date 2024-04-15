@@ -14,6 +14,8 @@ spec:
       interval: 12h
   # https://gitea.com/gitea/helm-chart/src/branch/main/values.yaml
   values:
+
+    # Deployment strategy
     strategy:
       type: Recreate
 
