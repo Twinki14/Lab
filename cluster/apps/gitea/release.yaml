@@ -7,7 +7,7 @@ spec:
   chart:
     spec:
       chart: gitea
-      version: ""
+      version: "10.x.x"
       sourceRef:
         kind: HelmRepository
         name: gitea-repo
@@ -49,10 +49,7 @@ spec:
       ## @param gitea.admin.password Password for the Gitea admin user
       ## @param gitea.admin.email Email for the Gitea admin user
       admin:
-        # existingSecret: gitea-admin-secret
-        existingSecret:
-        username: gitea_admin
-        password: r8sA8CPHD9!bt6d
+        existingSecret: gitea-creds
         email: "gitea@local.domain"
 
       metrics:
