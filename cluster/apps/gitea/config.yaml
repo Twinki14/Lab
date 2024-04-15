@@ -3,6 +3,8 @@ kind: ConfigMap
 metadata:
   name: gitea-app-ini
 data:
+  server: |
+    LFS_START_SERVER=true
   service: |
     REQUIRE_SIGNIN_VIEW=true
     DISABLE_REGISTRATION=true
