@@ -1,0 +1,82 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: gitea
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: gitea
+      version: ""
+      sourceRef:
+        kind: HelmRepository
+        name: gitea-repo
+      interval: 12h
+  # https://gitea.com/gitea/helm-chart/src/branch/main/values.yaml
+  values:
+
+    # Storage & Persistence
+    persistence:
+      enabled: true
+      create: true
+      mount: true
+      size: 250Gi
+      accessModes:
+      - ReadWriteOnce
+      storageClass: zfs-local-dataset
+
+    # Postgres
+    postgresql:
+      enabled: true
+      global:
+        postgresql:
+          auth:
+            password: gitea
+            database: gitea
+            username: gitea
+      primary:
+        persistence:
+          size: 5Gi
+
+    # Ingress
+    ingress:
+      enabled: false
+
+    # Gitea
+    gitea:
+      ## @param gitea.admin.username Username for the Gitea admin user
+      ## @param gitea.admin.existingSecret Use an existing secret to store admin user credentials
+      ## @param gitea.admin.password Password for the Gitea admin user
+      ## @param gitea.admin.email Email for the Gitea admin user
+      admin:
+        # existingSecret: gitea-admin-secret
+        existingSecret:
+        username: gitea_admin
+        password: r8sA8CPHD9!bt6d
+        email: "gitea@local.domain"
+
+      metrics:
+        enabled: false
+        serviceMonitor:
+          enabled: false
+
+      # Either specify inline `key` and `secret` or refer to them via `existingSecret`
+      ## @param gitea.oauth OAuth configuration
+      oauth: []
+      # - name: 'OAuth 1'
+    #   provider:
+    #   key:
+    #   secret:
+    #   existingSecret:
+    #   autoDiscoverUrl:
+    #   useCustomUrls:
+    #   customAuthUrl:
+    #   customTokenUrl:
+    #   customProfileUrl:
+    #   customEmailUrl:
+
+    # Disble HA
+    redis-cluster:
+      enabled: false
+    postgresql-ha:
+      enabled: false
