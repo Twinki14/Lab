@@ -65,6 +65,10 @@ spec:
         existingSecret: gitea-creds
         email: "gitea@local.domain"
 
+      additionalConfigFromEnvs:
+      - name: GITEA_REQUIRE_SIGNIN_VIEW
+        value: true
+
       metrics:
         enabled: false
         serviceMonitor:
