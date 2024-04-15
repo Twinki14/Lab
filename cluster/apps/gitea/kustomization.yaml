@@ -4,6 +4,7 @@ metadata:
   name: gitea
 
 resources:
+- config.yaml
 - repository.yaml
 - release.yaml
 - secret.yaml
