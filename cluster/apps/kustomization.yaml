@@ -6,5 +6,4 @@ namespace: apps
 
 resources:
 - miha
-- whoami
 - namespace.yaml
