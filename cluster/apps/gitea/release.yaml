@@ -14,6 +14,8 @@ spec:
       interval: 12h
   # https://gitea.com/gitea/helm-chart/src/branch/main/values.yaml
   values:
+    strategy:
+      type: Recreate
 
     # Storage & Persistence
     persistence:
