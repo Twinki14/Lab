@@ -40,7 +40,20 @@ spec:
 
     # Ingress
     ingress:
-      enabled: false
+      enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-issuer
+        traefik.ingress.kubernetes.io/router.entrypoints: websecure
+        traefik.ingress.kubernetes.io/router.tls: "true"
+      hosts:
+      - host: gitea.catboy.rest
+        paths:
+        - path: /
+          pathType: Prefix
+      tls:
+      - hosts:
+        - gitea.catboy.rest
+        secretName: gitea-cert
 
     # Gitea
     gitea:

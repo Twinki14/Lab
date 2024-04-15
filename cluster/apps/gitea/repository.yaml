@@ -4,4 +4,4 @@ metadata:
   name: gitea-repo
 spec:
   interval: 24h
-  url: https://democratic-csi.github.io/charts/
+  url: https://dl.gitea.io/charts/
