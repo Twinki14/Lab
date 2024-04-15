@@ -69,11 +69,9 @@ spec:
         existingSecret: gitea-creds
         email: "gitea@local.domain"
 
-      additionalConfigFromEnvs:
-      - name: GITEA_SERVICE_REQUIRE_SIGNIN_VIEW
-        value: 'true'
-      - name: GITEA_SERVICE_DISABLE_REGISTRATION
-        value: 'true'
+      additionalConfigSources:
+      - configMap:
+          name: gitea-app-ini
 
       metrics:
         enabled: false
