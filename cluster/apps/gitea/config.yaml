@@ -5,6 +5,17 @@ metadata:
 data:
   server: |
     LFS_START_SERVER=true
+
   service: |
     REQUIRE_SIGNIN_VIEW=true
     DISABLE_REGISTRATION=true
+
+  oauth2: |
+    ENABLE=true
+
+  oauth2_client: |
+    REGISTER_EMAIL_CONFIRM=false
+    ENABLE_AUTO_REGISTRATION=true
+    USERNAME=nickname
+    UPDATE_AVATAR=true
+    ACCOUNT_LINKING=login
