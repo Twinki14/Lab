@@ -66,9 +66,9 @@ spec:
         email: "gitea@local.domain"
 
       additionalConfigFromEnvs:
-      - name: GITEA_REQUIRE_SIGNIN_VIEW
+      - name: GITEA__SERVICE__REQUIRE__SIGNIN__VIEW
         value: 'true'
-      - name: GITEA_DISABLE_REGISTRATION
+      - name: GITEA__SERVICE__DISABLE__REGISTRATION
         value: 'true'
 
       metrics:
