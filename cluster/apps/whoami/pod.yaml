@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: whoami
+spec:
+  containers:
+  - name: whoami
+    image: containous/whoami:latest
+    resources:
+      requests:
+        cpu: 250m
+        memory: 64Mi
+      limits:
+        cpu: 250m
+        memory: 64Mi
+    env:
+    - name: CREDS_USER
+      valueFrom:
+        secretKeyRef:
+          name: whoami-creds
+          key: username
+    - name: CREDS_PASS
+      valueFrom:
+        secretKeyRef:
+          name: whoami-creds
+          key: password
