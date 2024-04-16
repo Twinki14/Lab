@@ -9,5 +9,5 @@ metadata:
     secret-generator.v1.mittwald.de/encoding: base64
     secret-generator.v1.mittwald.de/autogenerate: secret
 type: Opaque
-striingData:
+data:
   key: gitea
