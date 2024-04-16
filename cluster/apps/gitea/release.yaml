@@ -83,8 +83,8 @@ spec:
       oauth:
       - name: Dex
         existingSecret: dex-client-gitea
-        autoDiscoverUrl: https://dex.catboy.rest/.well-known/openid-configuration
-        iconUrl: https://dexidp.io/img/logos/dex-glyph-color.png
+        autoDiscoverUrl: "https://dex.catboy.rest/.well-known/openid-configuration"
+        iconUrl: "https://dexidp.io/img/logos/dex-glyph-color.png"
         scopes: email,profile,groups
         skipLocal2fa: 'true'
         requiredClaimName: groups
