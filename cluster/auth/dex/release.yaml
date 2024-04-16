@@ -44,6 +44,7 @@ spec:
         redirectURIs:
         - https://gitea.catboy.rest/user/oauth2/Dex/callback
         name: Gitea
+        secret: 'test'
 
     ingress:
       enabled: true
