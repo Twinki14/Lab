@@ -24,7 +24,7 @@ stringData:
         config:
           redirectURI: https://dex.catboy.rest/callback
           loadAllGroups: true
-          teamNameField: slug
+          teamNameField: both
           useLoginAsID: false
           orgs:
           - name: CozyDen
