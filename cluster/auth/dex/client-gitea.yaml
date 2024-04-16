@@ -1,14 +1,13 @@
-apiVersion: secretgenerator.mittwald.de/v1alpha1
-kind: StringSecret
+apiVersion: v1
+kind: Secret
 metadata:
+  name: dex-client-gitea
   annotations:
     kubed.appscode.com/sync: ""
-  name: dex-client-gitea
-spec:
-  forceRegenerate: true
-  data:
-    key: "gitea"
-  fields:
-  - fieldName: secret
-    encoding: base64
-    length: '24'
+    secret-generator.v1.mittwald.de/type: string
+    secret-generator.v1.mittwald.de/secure: "yes"
+    secret-generator.v1.mittwald.de/encoding: base64
+    secret-generator.v1.mittwald.de/autogenerate: secret
+type: Opaque
+striingData:
+  key: gitea
