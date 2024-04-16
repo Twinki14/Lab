@@ -20,8 +20,6 @@ spec:
         name: config-syncer-repo
       interval: 12h
   values:
-    image:
-      tag: v0.15.0
     license: |-
       "-----BEGIN CERTIFICATE-----
       MIID2zCCAsOgAwIBAgIIRxeLsSX+33kwDQYJKoZIhvcNAQELBQAwJTEWMBQGA1UE
