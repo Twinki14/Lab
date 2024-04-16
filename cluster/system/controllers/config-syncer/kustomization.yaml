@@ -4,6 +4,5 @@ metadata:
   name: config-syncer
 
 resources:
-- license.yaml
 - repository.yaml
 - release.yaml
