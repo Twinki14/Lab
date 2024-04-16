@@ -6,6 +6,7 @@ namespace: kube-system
 
 resources:
 - cert-manager
+- config-syncer
 - democratic-csi
 - sealed-secrets
 - secret-generator
