@@ -19,9 +19,10 @@ spec:
         kind: HelmRepository
         name: config-syncer-repo
       interval: 12h
+  # https://github.com/kubeops/installer/blob/master/charts/config-syncer/values.yaml
   values:
     license: >
-      "-----BEGIN CERTIFICATE-----
+      -----BEGIN CERTIFICATE-----
       MIID2zCCAsOgAwIBAgIIRxeLsSX+33kwDQYJKoZIhvcNAQELBQAwJTEWMBQGA1UE
       ChMNQXBwc0NvZGUgSW5jLjELMAkGA1UEAxMCY2EwHhcNMjQwNDE2MTkxMjIyWhcN
       MjQwNTE2MTkxMjIyWjCBojEWMBQGA1UEBhMNY29uZmlnLXN5bmNlcjETMBEGA1UE
@@ -43,4 +44,4 @@ spec:
       TLnlu6q2SyEp+Qp2sxAuO3tVNH5iIHXG8xv+JpYNxqmIEc9YhpfUxPRF5C+WSAfc
       k8PGlauPUsaZXPWuYr2tO4gu7lR927rXc8t1dp8fBedRkEo0BkWzMDDhL+PEvOla
       i7p6W31eVaAwBAWKNK1peZWo6QE7XqXnsCL7QZugAA==
-      -----END CERTIFICATE-----"
+      -----END CERTIFICATE-----
