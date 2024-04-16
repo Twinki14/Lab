@@ -29,7 +29,12 @@ spec:
     targetPath: config.connectors[0].config.clientSecret
     optional: false
   - kind: Secret
-    name: dex-clients
-    valuesKey: gitea
+    name: dex-client-gitea
+    valuesKey: key
+    targetPath: config.staticClients[0].id
+    optional: false
+  - kind: Secret
+    name: dex-client-gitea
+    valuesKey: secret
     targetPath: config.staticClients[0].secret
     optional: false

@@ -32,10 +32,9 @@ stringData:
             - Admin
             - User
       staticClients:
-      - id: gitea
+      - name: Gitea
         redirectURIs:
         - https://gitea.catboy.rest/user/oauth2/Dex/callback
-        name: Gitea
 
     ingress:
       enabled: true
