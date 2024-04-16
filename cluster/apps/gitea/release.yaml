@@ -83,7 +83,7 @@ spec:
       oauth:
       - name: Dex
         existingSecret: dex-client-gitea
-        autoDiscoverUrl:
+        autoDiscoverUrl: https://dex.catboy.rest/.well-known/openid-configuration
     #   provider:
     #   key:
     #   secret:
