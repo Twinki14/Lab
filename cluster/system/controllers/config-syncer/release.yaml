@@ -14,8 +14,11 @@ spec:
   chart:
     spec:
       chart: config-syncer
-      version: "0.15.x"
+      version: "0.15.0"
       sourceRef:
         kind: HelmRepository
         name: config-syncer-repo
       interval: 12h
+  values:
+    image:
+      tag: v0.15.0-ent
