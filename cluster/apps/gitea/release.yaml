@@ -84,16 +84,12 @@ spec:
       - name: Dex
         existingSecret: dex-client-gitea
         autoDiscoverUrl: https://dex.catboy.rest/.well-known/openid-configuration
-    #   provider:
-    #   key:
-    #   secret:
-    #   existingSecret:
-    #   autoDiscoverUrl:
-    #   useCustomUrls:
-    #   customAuthUrl:
-    #   customTokenUrl:
-    #   customProfileUrl:
-    #   customEmailUrl:
+        iconUrl: https://dexidp.io/img/logos/dex-glyph-color.png
+        scopes: email,profile,groups
+        skipLocal2fa: 'true'
+        requiredClaimName: groups
+        groupClaimName: groups
+        adminGroup: CozyDen:Admin
 
     # Disble HA
     redis-cluster:
