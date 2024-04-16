@@ -4,8 +4,6 @@ metadata:
   name: dex-client-gitea
   annotations:
     kubed.appscode.com/sync: ""
-    secret-generator.v1.mittwald.de/type: string
-    secret-generator.v1.mittwald.de/secure: "yes"
     secret-generator.v1.mittwald.de/encoding: base64
     secret-generator.v1.mittwald.de/autogenerate: secret
 type: Opaque
