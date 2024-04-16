@@ -80,8 +80,10 @@ spec:
 
       # Either specify inline `key` and `secret` or refer to them via `existingSecret`
       ## @param gitea.oauth OAuth configuration
-      oauth: []
-      # - name: 'OAuth 1'
+      oauth:
+      - name: Dex
+        existingSecret: dex-client-gitea
+        autoDiscoverUrl:
     #   provider:
     #   key:
     #   secret:
