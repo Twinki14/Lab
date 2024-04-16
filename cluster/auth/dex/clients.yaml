@@ -1,0 +1,10 @@
+apiVersion: secretgenerator.mittwald.de/v1alpha1
+kind: StringSecret
+metadata:
+  name: dex-clients
+spec:
+  forceRegenerate: false
+  fields:
+  - fieldName: gitea
+    encoding: base64
+    length: '32'
