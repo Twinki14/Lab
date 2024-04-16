@@ -20,28 +20,9 @@ spec:
         name: config-syncer-repo
       interval: 12h
   # https://github.com/kubeops/installer/blob/master/charts/config-syncer/values.yaml
-  values:
-    license: >
-      -----BEGIN CERTIFICATE-----
-      MIID2zCCAsOgAwIBAgIIRxeLsSX+33kwDQYJKoZIhvcNAQELBQAwJTEWMBQGA1UE
-      ChMNQXBwc0NvZGUgSW5jLjELMAkGA1UEAxMCY2EwHhcNMjQwNDE2MTkxMjIyWhcN
-      MjQwNTE2MTkxMjIyWjCBojEWMBQGA1UEBhMNY29uZmlnLXN5bmNlcjETMBEGA1UE
-      CBMKZW50ZXJwcmlzZTEhMB8GA1UEChMYY29uZmlnLXN5bmNlci1lbnRlcnByaXNl
-      MSEwHwYDVQQLExhjb25maWctc3luY2VyLWVudGVycHJpc2UxLTArBgNVBAMTJDA0
-      OTU1MTZkLTJlYzUtNDc3Yy1hZTY3LTU0MjlmZDUwY2VhMTCCASIwDQYJKoZIhvcN
-      AQEBBQADggEPADCCAQoCggEBAKtlbx15hlW7DPrAloszFBq/kRQCf+7b6dvZXEzT
-      FgTCh3CsniXcjjph4XkLFyDvlsRN7RnQPnAQjFv5lWqnteGNBw23e3bx2AortGLf
-      CvX3wfp6U3QUfvx6EOsleXS6XjUbw38tNmudqGzv5k13XJhQv3wJPIXw+64PIvfM
-      QYERLie4AIWfmgZx1bsarSrpJqJUyrera9ISqhgSR9Wd3kjLysBodg6sYVuc1C4M
-      bXmFN9gdBwtN8x72+YfFZWDuBEnsXxIADsZvu+6JoCVtZWm7s1zRVK6O7FXhHsjn
-      HX97EM4KnLQKvOXtVlks5QfDmCw8VZLvxCHHT8gY/5x9zuMCAwEAAaOBkDCBjTAO
-      BgNVHQ8BAf8EBAMCBaAwEwYDVR0lBAwwCgYIKwYBBQUHAwIwZgYDVR0RBF8wXYIk
-      MDQ5NTUxNmQtMmVjNS00NzdjLWFlNjctNTQyOWZkNTBjZWExgR5Ud2lua2kgPHRo
-      ZXR3aW5rZWhoQGdtYWlsLmNvbT6BFXRoZXR3aW5rZWhoQGdtYWlsLmNvbTANBgkq
-      hkiG9w0BAQsFAAOCAQEATgqfass4BQ93XyxUocOJo0cqoO4ZBuM+RtdBqbGHXxWm
-      4mpOT2oyVUnt+0dlG88Z/dR0m0R01j6byLzF1QFB/+/DU6z34apb2H/6HXvwwR26
-      2L1TT0J1jV+TVM5JtpLbxNlfq8bHT5kpbBEB6AaKckv/To32JpGgEL1HUCNzuo1R
-      TLnlu6q2SyEp+Qp2sxAuO3tVNH5iIHXG8xv+JpYNxqmIEc9YhpfUxPRF5C+WSAfc
-      k8PGlauPUsaZXPWuYr2tO4gu7lR927rXc8t1dp8fBedRkEo0BkWzMDDhL+PEvOla
-      i7p6W31eVaAwBAWKNK1peZWo6QE7XqXnsCL7QZugAA==
-      -----END CERTIFICATE-----
+  valuesFrom:
+  - kind: Secret
+    name: config-syncer-license
+    valuesKey: license
+    targetPath: license
+    optional: false
