@@ -75,5 +75,5 @@ spec:
   - kind: Secret
     name: dex-clients
     valuesKey: gitea
-    targetPath: config.staticClients[0].secret
+    targetPath: config.staticClients[0].config.secret
     optional: false
