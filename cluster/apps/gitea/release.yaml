@@ -82,7 +82,7 @@ spec:
       ## @param gitea.oauth OAuth configuration
       oauth:
       - name: Dex
-        provider: openid
+        provider: openidConnect
         existingSecret: dex-client-gitea
         autoDiscoverUrl: "https://dex.catboy.rest/.well-known/openid-configuration"
         iconUrl: "https://dexidp.io/img/logos/dex-glyph-color.png"
