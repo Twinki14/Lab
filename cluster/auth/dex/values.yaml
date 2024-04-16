@@ -4,8 +4,8 @@ metadata:
   name: dex-values
 type: Opaque
 stringData:
-  values.yaml: >
-  
+  values: >
+
     serviceMonitor:
       enabled: false
 
