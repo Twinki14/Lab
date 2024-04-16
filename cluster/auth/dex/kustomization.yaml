@@ -5,6 +5,7 @@ metadata:
 
 resources:
 - clients.yaml
+- values.yaml
 - github-oauth.yaml
 - repository.yaml
 - release.yaml
