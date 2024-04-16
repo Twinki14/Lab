@@ -21,7 +21,7 @@ spec:
       interval: 12h
   # https://github.com/kubeops/installer/blob/master/charts/config-syncer/values.yaml
   values:
-    license: >
+    license: |
       -----BEGIN CERTIFICATE-----
       MIID2zCCAsOgAwIBAgIIRxeLsSX+33kwDQYJKoZIhvcNAQELBQAwJTEWMBQGA1UE
       ChMNQXBwc0NvZGUgSW5jLjELMAkGA1UEAxMCY2EwHhcNMjQwNDE2MTkxMjIyWhcN
