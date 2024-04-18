@@ -24,7 +24,7 @@ spec:
       enabled: true
       create: true
       mount: true
-      size: 250Gi
+      size: 500Gi
       accessModes:
       - ReadWriteOnce
       storageClass: zfs-local-dataset
