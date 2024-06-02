@@ -3,7 +3,8 @@ kind: Secret
 metadata:
   name: dex-client-gitea
   annotations:
-    kubed.appscode.com/sync: ""
+    reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
+    reflector.v1.k8s.emberstack.com/reflection-auto-enabled: "true"
     secret-generator.v1.mittwald.de/encoding: base64
     secret-generator.v1.mittwald.de/autogenerate: secret
 type: Opaque
