@@ -20,14 +20,14 @@ spec:
         name: agones-repo
       interval: 12h
     # https://github.com/googleforgames/agones/blob/main/install/helm/agones/values.yaml
-    values:
-      agones:
-        controller:
-          replicas: 1
-        extensions:
-          replicas: 1
-          persistentLogsSizeLimitMB: 500
-        ping:
-          replicas: 1
-        allocator:
-          replicas: 1
+  values:
+    agones:
+      controller:
+        replicas: 1
+      extensions:
+        replicas: 1
+        persistentLogsSizeLimitMB: 500
+      ping:
+        replicas: 1
+      allocator:
+        replicas: 1
