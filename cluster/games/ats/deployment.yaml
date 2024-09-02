@@ -60,3 +60,7 @@ spec:
           protocol: UDP
         - containerPort: 27015
           protocol: TCP
+        - containerPort: 27016
+          protocol: UDP
+        - containerPort: 27016
+          protocol: TCP
