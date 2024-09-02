@@ -36,22 +36,12 @@ spec:
           value: "Don't forget about the cock and balls"
         - name: ETS_SERVER_WELCOME_MESSAGE
           value: "Don't forget about the cock and balls"
-        - name: ETS_SERVER_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: ats
-              key: server-password
         - name: ETS_SERVER_MAX_PLAYERS
           value: '12'
         - name: ETS_SERVER_PORT
           value: '27015'
         - name: ETS_SERVER_QUERY_PORT
           value: '27016'
-        - name: ETS_SERVER_LOGON_TOKEN
-          valueFrom:
-            secretKeyRef:
-              name: ats
-              key: steam-login-token
         - name: ETS_SERVER_MODS_OPTIONING
           value: 'true'
         ports:
