@@ -28,6 +28,7 @@ spec:
         replicas: 1
         persistentLogsSizeLimitMB: 500
       ping:
+        install: false
         replicas: 1
       allocator:
         replicas: 1
