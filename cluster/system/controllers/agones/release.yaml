@@ -26,6 +26,7 @@ spec:
           replicas: 1
         extensions:
           replicas: 1
+          persistentLogsSizeLimitMB: 500
         ping:
           replicas: 1
         allocator:
