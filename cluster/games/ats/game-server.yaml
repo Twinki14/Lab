@@ -57,14 +57,16 @@ spec:
         env:
         - name: ETS_SERVER_WRITE_CONFIG
           value: 'true'
+        - name: ETS_SERVER_SHOW_SERVER
+          value: 'true'
         - name: ETS_SERVER_UPDATE_ON_START
           value: 'true'
         - name: ETS_SERVER_NAME
-          value: '1tr-dedi'
+          value: '1tr'
         - name: ETS_SERVER_DESCRIPTION
-          value: "Don't forget about the cock and balls"
+          value: "1tr"
         - name: ETS_SERVER_WELCOME_MESSAGE
-          value: "Don't forget about the cock and balls"
+          value: "1tr"
         - name: ETS_SERVER_MAX_PLAYERS
           value: '12'
         - name: ETS_SERVER_PORT
