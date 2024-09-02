@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ats
+  namespace: games
   labels:
     game: ats
 spec:
@@ -21,10 +22,10 @@ spec:
         resources:
           requests:
             cpu: 2500m # 2.5 cpu cores
-            memory: 4Gb
+            memory: 4Gi
           limits:
             cpu: 2500m # 2.5 cpu cores
-            memory: 4Gb
+            memory: 4Gi
         env:
         - name: ETS_SERVER_WRITE_CONFIG
           value: 'true'
@@ -44,6 +45,16 @@ spec:
           value: '27016'
         - name: ETS_SERVER_MODS_OPTIONING
           value: 'true'
+        - name: ETS_SERVER_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: ats
+              key: server-password
+        - name: ETS_SERVER_LOGON_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: ats
+              key: steam-login-token
         ports:
         - containerPort: 27015
           protocol: UDP
