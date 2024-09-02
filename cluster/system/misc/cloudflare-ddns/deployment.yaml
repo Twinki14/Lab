@@ -19,11 +19,11 @@ spec:
         image: oznu/cloudflare-ddns:amd64
         resources:
           requests:
-            cpu: 250m
-            memory: 512Mi
+            cpu: 35m
+            memory: 20Mi
           limits:
-            cpu: 250m
-            memory: 512Mi
+            cpu: 35m
+            memory: 20Mi
         env:
         - name: ZONE
           value: "catboy.rest"
