@@ -31,4 +31,5 @@ spec:
         install: false
         replicas: 1
       allocator:
+        install: false
         replicas: 1
