@@ -5,6 +5,7 @@ metadata:
 namespace: kube-system
 
 resources:
+- agones
 - cert-manager
 - democratic-csi
 - reflector
