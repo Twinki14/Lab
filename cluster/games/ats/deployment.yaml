@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ats
+  labels:
+    game: ats
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      game: ats
+  template:
+    metadata:
+      labels:
+        game: ats
+    spec:
+      containers:
+      - name: ats
+        image: lshallo/ats-convoy-server:latest
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: '2'
+            memory: 4Gb
+          limits:
+            cpu: '2'
+            memory: 4Gb
+        env:
+        - name: ETS_SERVER_WRITE_CONFIG
+          value: 'true'
+        - name: ETS_SERVER_UPDATE_ON_START
+          value: 'true'
+        - name: ETS_SERVER_NAME
+          value: '1tr-dedi'
+        - name: ETS_SERVER_DESCRIPTION
+          value: "Don't forget about the cock and balls"
+        - name: ETS_SERVER_WELCOME_MESSAGE
+          value: "Don't forget about the cock and balls"
+        - name: ETS_SERVER_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: ats
+              key: server-password
+        - name: ETS_SERVER_MAX_PLAYERS
+          value: '12'
+        - name: ETS_SERVER_PORT
+          value: '12'
+        - name: ETS_SERVER_LOGON_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: ats
+              key: steam-login-token
+        - name: ETS_SERVER_MODS_OPTIONING
+          value: 'true'
