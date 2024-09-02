@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: cloudflare-ddns
-        image: docker pull oznu/cloudflare-ddns:amd64
+        image: oznu/cloudflare-ddns:amd64
         resources:
           requests:
             cpu: 250m
