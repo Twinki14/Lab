@@ -44,7 +44,9 @@ spec:
         - name: ETS_SERVER_MAX_PLAYERS
           value: '12'
         - name: ETS_SERVER_PORT
-          value: '12'
+          value: '27015'
+        - name: ETS_SERVER_QUERY_PORT
+          value: '27016'
         - name: ETS_SERVER_LOGON_TOKEN
           valueFrom:
             secretKeyRef:
@@ -52,3 +54,8 @@ spec:
               key: steam-login-token
         - name: ETS_SERVER_MODS_OPTIONING
           value: 'true'
+        ports:
+        - containerPort: 27015
+          protocol: UDP
+        - containerPort: 27015
+          protocol: TCP
