@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudflare-ddns
+  labels:
+    app: cloudflare-ddns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloudflare-ddns
+  template:
+    metadata:
+      labels:
+        app: cloudflare-ddns
+    spec:
+      containers:
+      - name: cloudflare-ddns
+        image: docker pull oznu/cloudflare-ddns:amd64
+        resources:
+          requests:
+            cpu: 250m
+            memory: 512Mi
+          limits:
+            cpu: 250m
+            memory: 512Mi
+        env:
+        - name: ZONE
+          value: "catboy.rest"
+        - name: API_KEY_FILE
+          value: /var/secrets/cloudflare-api-token
+        volumeMounts:
+        - name: api-token
+          mountPath: /var/secrets
+          readOnly: true
+  volumes:
+  - name: api-token
+    secret:
+      secretName: cloudflare-api-token
+      items:
+      - key: token
+        path: cloudflare-api-token
