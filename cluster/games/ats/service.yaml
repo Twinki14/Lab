@@ -4,23 +4,15 @@ metadata:
   name: ats
 spec:
   ports:
-  - name: game-port-tcp
-    protocol: TCP
-    port: 27015
-    targetPort: 27015
-  - name: game-port-udp
+  - name: game-port
     protocol: UDP
     port: 27015
     targetPort: 27015
-  - name: query-port-tcp
-    protocol: TCP
-    port: 27016
-    targetPort: 27016
-  - name: query-port-udp
+  - name: query-port
     protocol: UDP
     port: 27016
     targetPort: 27016
-  loadBalancerIP: 192.168.86.64
+  type: LoadBalancer
   selector:
     game: ats
 
