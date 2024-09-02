@@ -33,10 +33,10 @@ spec:
         - name: api-token
           mountPath: /var/secrets
           readOnly: true
-    volumes:
-    - name: api-token
-      secret:
-        secretName: cloudflare-api-token
-        items:
-        - key: token
-          path: cloudflare-api-token
+      volumes:
+      - name: api-token
+        secret:
+          secretName: cloudflare-api-token
+          items:
+          - key: token
+            path: cloudflare-api-token
