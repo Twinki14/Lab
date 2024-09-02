@@ -3,6 +3,8 @@ kind: GameServer
 metadata:
   name: ats
 spec:
+  eviction:
+    safe: OnUpgrade
   ports:
   - name: game
     # [Stage:Alpha]
@@ -62,7 +64,7 @@ spec:
         - name: ETS_SERVER_UPDATE_ON_START
           value: 'true'
         - name: ETS_SERVER_NAME
-          value: '1tr'
+          value: '1tr-wtf'
         - name: ETS_SERVER_DESCRIPTION
           value: "1tr"
         - name: ETS_SERVER_WELCOME_MESSAGE
