@@ -4,8 +4,4 @@ metadata:
   name: american-truck-simulator
 
 resources:
-- deployment.yaml
-- ingress-tcp.yaml
-- ingress-udp.yaml
-- service.yaml
 - secret-sealed.yaml
