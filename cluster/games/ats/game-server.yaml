@@ -37,8 +37,6 @@ spec:
             cpu: 2500m # 2.5 cpu cores
             memory: 4Gi
         env:
-        - name: ETS_SERVER_WRITE_CONFIG
-          value: 'true'
         - name: ETS_SERVER_SHOW_SERVER
           value: 'true'
         - name: ETS_SERVER_UPDATE_ON_START
@@ -51,12 +49,6 @@ spec:
           value: "1tr"
         - name: ETS_SERVER_MAX_PLAYERS
           value: '8'
-        - name: ETS_SERVER_PORT
-          value: '27015'
-        - name: ETS_SERVER_QUERY_PORT
-          value: '27016'
-        - name: ETS_SERVER_MODS_OPTIONING
-          value: 'true'
         - name: ETS_SERVER_PASSWORD
           valueFrom:
             secretKeyRef:
