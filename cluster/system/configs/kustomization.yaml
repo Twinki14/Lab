@@ -6,4 +6,3 @@ namespace: kube-system
 
 resources:
 - cluster-issuers.yaml
-- metallb-address-pool.yaml
