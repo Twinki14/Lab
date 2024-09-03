@@ -22,4 +22,4 @@ spec:
     port: 27016
     targetPort: 27016
     protocol: TCP
-  type: ClusterIP
+  type: LoadBalancer
