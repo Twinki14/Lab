@@ -7,13 +7,13 @@ spec:
     safe: OnUpgrade
   ports:
   - name: game
-    portPolicy: Passthrough
+    portPolicy: Static
     container: ats
     containerPort: 27015
     hostPort: 27015
     protocol: TCPUDP
   - name: query
-    portPolicy: Passthrough
+    portPolicy: Static
     container: ats
     containerPort: 27016
     hostPort: 27016
