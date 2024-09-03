@@ -26,7 +26,7 @@ spec:
       single: true
       type: LoadBalancer
     ports:
-      steam-game:
+      steam-game-tcp:
         port: 27015
         hostPort: 27015
         containerPort: 27015
@@ -34,3 +34,27 @@ spec:
           default: true
         exposedPort: 27015
         protocol: TCP
+      steam-game-udp:
+        port: 27015
+        hostPort: 27015
+        containerPort: 27015
+        expose:
+          default: true
+        exposedPort: 27015
+        protocol: UDP
+      steam-query-tcp:
+        port: 27016
+        hostPort: 27016
+        containerPort: 27016
+        expose:
+          default: true
+        exposedPort: 27016
+        protocol: TCP
+      steam-query-udp:
+        port: 27016
+        hostPort: 27016
+        containerPort: 27016
+        expose:
+          default: true
+        exposedPort: 27016
+        protocol: UDP
