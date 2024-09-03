@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ats
+  namespace: games
+  labels:
+    game: ats
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      game: ats
+  template:
+    metadata:
+      labels:
+        game: ats
+    spec:
+      containers:
+      - name: ats
+        image: lshallo/ats-convoy-server:latest
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 2500m # 2.5 cpu cores
+            memory: 4Gi
+          limits:
+            cpu: 2500m # 2.5 cpu cores
+            memory: 4Gi
+        env:
+        - name: ETS_SERVER_WRITE_CONFIG
+          value: 'true'
+        - name: ETS_SERVER_UPDATE_ON_START
+          value: 'true'
+        - name: ETS_SERVER_NAME
+          value: '1tr-dedi'
+        - name: ETS_SERVER_DESCRIPTION
+          value: "Don't forget about the cock and balls"
+        - name: ETS_SERVER_WELCOME_MESSAGE
+          value: "Don't forget about the cock and balls"
+        - name: ETS_SERVER_MAX_PLAYERS
+          value: '12'
+        - name: ETS_SERVER_PORT
+          value: '27015'
+        - name: ETS_SERVER_QUERY_PORT
+          value: '27016'
+        - name: ETS_SERVER_MODS_OPTIONING
+          value: 'true'
+        - name: ETS_SERVER_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: ats
+              key: server-password
+        - name: ETS_SERVER_LOGON_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: ats
+              key: steam-login-token
+        ports:
+        - containerPort: 27015
+          protocol: UDP
+          hostPort: 27015
+        - containerPort: 27016
+          protocol: UDP
+          hostPort: 27016
+        - containerPort: 27015
+          protocol: TCP
+          hostPort: 27015
+        - containerPort: 27016
+          protocol: TCP
+          hostPort: 27016
