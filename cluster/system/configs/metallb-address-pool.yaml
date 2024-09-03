@@ -4,4 +4,4 @@ metadata:
   name: metallb-address-pool
 spec:
   addresses:
-  - 192.168.86.126/25 # should be 126..250
+  - 192.168.86.225-192.168.86.250
