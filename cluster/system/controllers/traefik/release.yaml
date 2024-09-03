@@ -25,20 +25,3 @@ spec:
       enabled: true
       single: true
       type: LoadBalancer
-    ports:
-      steam-query-tcp:
-        port: 27016
-        hostPort: 27016
-        containerPort: 27016
-        expose:
-          default: true
-        exposedPort: 27016
-        protocol: TCP
-      steam-query-udp:
-        port: 27016
-        hostPort: 27016
-        containerPort: 27016
-        expose:
-          default: true
-        exposedPort: 27016
-        protocol: UDP
