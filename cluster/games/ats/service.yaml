@@ -1,7 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ats-udp
+  name: ats
+  annotations:
+    metallb.universe.tf/address-pool: metallb-address-pool
 spec:
   ports:
   - name: main
