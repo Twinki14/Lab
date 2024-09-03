@@ -1,0 +1,31 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRouteUDP
+metadata:
+  name: ats-game-udp
+  namespace: default
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: "ats-game-udp"
+spec:
+  entryPoints:
+  - ats-game-udp
+  routes:
+  - match: HostSNI(`*`)
+    services:
+    - name: ats
+      port: 27015
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRouteUDP
+metadata:
+  name: ats-query-udp
+  namespace: default
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: "ats-query-udp"
+spec:
+  entryPoints:
+  - ats-query-udp
+  routes:
+  - match: HostSNI(`*`)
+    services:
+    - name: ats
+      port: 27016
