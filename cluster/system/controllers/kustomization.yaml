@@ -8,7 +8,6 @@ resources:
 - agones
 - cert-manager
 - democratic-csi
-- metallb
 - reflector
 - sealed-secrets
 - secret-generator
