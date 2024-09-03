@@ -4,5 +4,6 @@ metadata:
   name: american-truck-simulator
 
 resources:
-- game-server.yaml
+- deployment.yaml
+- service.yaml
 - secret-sealed.yaml
