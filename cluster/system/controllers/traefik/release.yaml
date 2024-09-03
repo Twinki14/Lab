@@ -25,3 +25,12 @@ spec:
       enabled: true
       single: true
       type: LoadBalancer
+    ports:
+      steam-game:
+        port: 25015
+        hostPort: 25015
+        containerPort: 25015
+        expose:
+          default: true
+        exposedPort: 25015
+        protocol: TCP
