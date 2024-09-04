@@ -9,19 +9,19 @@ spec:
     port: 27015
     targetPort: 27015
     protocol: TCP
-    nodePort: 37015
+    nodePort: 32715
   - name: game-udp
     port: 27015
     targetPort: 27015
     protocol: UDP
-    nodePort: 37015
+    nodePort: 32715
   - name: query-tcp
     port: 27016
     targetPort: 27016
     protocol: TCP
-    nodePort: 37016
+    nodePort: 32716
   - name: query-udp
     port: 27016
     targetPort: 27016
     protocol: UDP
-    nodePort: 37016
+    nodePort: 32716
