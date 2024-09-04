@@ -4,6 +4,8 @@ metadata:
   name: ats
 spec:
   type: NodePort
+  selector:
+    game: ats
   ports:
   - name: game-tcp
     port: 27015
