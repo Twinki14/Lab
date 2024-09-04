@@ -63,13 +63,9 @@ spec:
         ports:
         - containerPort: 27015
           protocol: UDP
-          hostPort: 27015
         - containerPort: 27016
           protocol: UDP
-          hostPort: 27016
         - containerPort: 27015
           protocol: TCP
-          hostPort: 27015
         - containerPort: 27016
           protocol: TCP
-          hostPort: 27016
