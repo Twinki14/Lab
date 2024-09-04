@@ -5,7 +5,5 @@ metadata:
 
 resources:
 - deployment.yaml
-- ingress-tcp.yaml
-- ingress-udp.yaml
 - service.yaml
 - secret-sealed.yaml

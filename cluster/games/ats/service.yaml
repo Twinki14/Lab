@@ -3,21 +3,25 @@ kind: Service
 metadata:
   name: ats
 spec:
-  type: ClusterIP
+  type: NodePort
   ports:
   - name: game-tcp
     port: 27015
     targetPort: 27015
     protocol: TCP
+    nodePort: 37015
   - name: game-udp
     port: 27015
     targetPort: 27015
     protocol: UDP
+    nodePort: 37015
   - name: query-tcp
     port: 27016
     targetPort: 27016
     protocol: TCP
+    nodePort: 37016
   - name: query-udp
     port: 27016
     targetPort: 27016
     protocol: UDP
+    nodePort: 37016
