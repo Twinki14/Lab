@@ -42,6 +42,8 @@ spec:
           value: "Don't forget about the cock and balls"
         - name: ETS_SERVER_WELCOME_MESSAGE
           value: "Don't forget about the cock and balls"
+        - name: ETS_SERVER_SERVICE_NO_COLLISION
+          value: 'true'
         - name: ETS_SERVER_MAX_PLAYERS
           value: '12'
         - name: ETS_SERVER_PORT
