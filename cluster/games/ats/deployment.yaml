@@ -37,7 +37,7 @@ spec:
         - name: ETS_SERVER_UPDATE_ON_START
           value: 'true'
         - name: ETS_SERVER_NAME
-          value: '1tr-dedi'
+          value: "1TR Dedicated truckin' and fuckin'"
         - name: ETS_SERVER_DESCRIPTION
           value: "Don't forget about the cock and balls"
         - name: ETS_SERVER_WELCOME_MESSAGE
