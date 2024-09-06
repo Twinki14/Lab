@@ -7,3 +7,4 @@ resources:
 - deployment.yaml
 - service.yaml
 - secret-sealed.yaml
+- config-server-packages.yaml
