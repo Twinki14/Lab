@@ -73,10 +73,10 @@ spec:
           protocol: TCP
         volumeMounts:
         - name: ats-server-packages-volume
-          mountPath: "/home/steam/.local/American Truck Simulator/server_packages.dat"
+          mountPath: "/home/steam/.local/share/American Truck Simulator/server_packages.dat"
           subPath: server_packages.dat
         - name: ats-server-packages-volume
-          mountPath: "/home/steam/.local/American Truck Simulator/server_packages.sii"
+          mountPath: "/home/steam/.local/share/American Truck Simulator/server_packages.sii"
           subPath: server_packages.sii
       volumes:
       - name: ats-server-packages-volume
