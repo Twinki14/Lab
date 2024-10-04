@@ -5,5 +5,4 @@ metadata:
 namespace: games
 
 resources:
-- ats
 - namespace.yaml
