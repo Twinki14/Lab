@@ -5,5 +5,4 @@ metadata:
 namespace: games
 
 resources:
-- valheim
 - namespace.yaml
