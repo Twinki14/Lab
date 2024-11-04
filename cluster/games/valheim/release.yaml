@@ -25,12 +25,16 @@ spec:
     serverName: CozyLab
     password: Headpats&Sake
 
+    # World/Server data persistance
     storage:
+      kind: persistentVolumeClaim
       pvc:
         size: 10Gi
         storageClassName: zfs-local-dataset
 
+    # Aerver installation file persistance
     serverStorage:
+      kind: persistentVolumeClaim
       pvc:
         size: 5Gi
         storageClassName: zfs-local-dataset
