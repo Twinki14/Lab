@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: valheim-server
+spec:
+  selector:
+    matchLabels:
+      game: valheim
+  template:
+    metadata:
+      labels:
+        game: valheim
+    spec:
+      containers:
+      - name: valheim-server
+        image: lloesche/valheim-server:latest
+        env:
+        - name: SERVER_NAME
+          value: CozyValheim
+        - name: WORLD_NAME
+          value: cozy-valheim
+        - name: SERVER_PASS
+          value: headpats&sake
+        - name: SERVER_PORT
+          value: 2456
+        ports:
+        - containerPort: 2456
+          name: game
+        - containerPort: 2457
+          name: query
+        volumeMounts:
+        - mountPath: /config
+          name: world-data
+        - mountPath: /opt/valheim
+          name: server-base
+      volumes:
+      - name: world-data
+        persistentVolumeClaim:
+          claimName: valheim-world-data
+      - name: server-base
+        persistentVolumeClaim:
+          claimName: valheim-server-base

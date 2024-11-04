@@ -4,5 +4,5 @@ metadata:
   name: valheim
 
 resources:
-- repository.yaml
-- release.yaml
+- pvc.yaml
+- deployment.yaml
