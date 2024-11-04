@@ -13,7 +13,7 @@ spec:
       retries: -1
   chart:
     spec:
-      chart: valheim-server
+      chart: valheim-k8s
       version: "2.x.x"
       sourceRef:
         kind: HelmRepository
