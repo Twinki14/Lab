@@ -35,6 +35,13 @@ spec:
           name: world-data
         - mountPath: /opt/valheim
           name: server-base
+        resources:
+          requests:
+            memory: 3Gi
+            cpu: 2
+          limits:
+            memory: 5Gi
+            cpu: 2
       volumes:
       - name: world-data
         persistentVolumeClaim:
