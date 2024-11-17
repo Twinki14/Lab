@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: valheim-status
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-issuer # Specify your Cert-Manager issuer
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: 'true'
+spec:
+  rules:
+  - host: valheim.catboy.rest # Replace with your desired domain
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: valheim-status
+            port:
+              number: 80
+  tls:
+  - hosts:
+    - valheim.catboy.rest # Replace with your desired domain
+    secretName: valheim-status-cert # TLS secret for HTTPS
