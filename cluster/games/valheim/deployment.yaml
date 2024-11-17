@@ -32,7 +32,7 @@ spec:
         - name: STATUS_HTTP
           value: "true"
         - name: STATUS_HTTP_PORT
-          value: 80
+          value: '80'
         ports:
         - containerPort: 2456
           name: game
@@ -42,7 +42,7 @@ spec:
           protocol: UDP
         - containerPort: 80
           name: status
-          protocol: tcp
+          protocol: TCP
         volumeMounts:
         - mountPath: /config
           name: world-data
