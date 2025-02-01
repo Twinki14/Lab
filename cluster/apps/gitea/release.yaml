@@ -14,6 +14,10 @@ spec:
       interval: 12h
   # https://gitea.com/gitea/helm-chart/src/branch/main/values.yaml
   values:
+    image:
+      tag: "1.23"
+      pullPolicy: IfNotPresent
+
 
     # Deployment strategy
     strategy:
