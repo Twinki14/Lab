@@ -1,4 +1,5 @@
 write-kubeconfig-mode: 777
+tls-san:
+- 'k8s.den'
 disable:
 - traefik
-- servicelb
