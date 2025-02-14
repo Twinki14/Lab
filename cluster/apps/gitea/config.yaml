@@ -11,7 +11,7 @@ data:
     DISABLE_REGISTRATION=true
 
   oauth2: |
-    ENABLE=true
+    ENABLED=true
 
   oauth2_client: |
     REGISTER_EMAIL_CONFIRM=false
