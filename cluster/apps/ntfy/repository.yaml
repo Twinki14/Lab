@@ -6,4 +6,4 @@ spec:
   interval: 24h
   url: oci://codeberg.org/wrenix/helm-charts/ntfy
   ref:
-    tag: latest
+    tag: 0.4.x
