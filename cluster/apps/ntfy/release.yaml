@@ -4,14 +4,10 @@ metadata:
   name: ntfy
 spec:
   interval: 12h
-  chart:
-    spec:
-      chart: gitea
-      version: "10.x.x"
-      sourceRef:
-        kind: OCIRepository
-        name: wrenix-ntfy-repo
-      interval: 12h
+  releaseName: ntfy
+  chartRef:
+    kind: OCIRepository
+    name: wrenix-ntfy-repo
   # https://codeberg.org/wrenix/helm-charts/src/branch/main/ntfy/values.yaml
   values:
     image:
