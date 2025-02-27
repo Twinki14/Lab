@@ -6,7 +6,7 @@ spec:
   interval: 12h
   chartRef:
     kind: OCIRepository
-    name: wrenix-ntfy-repo
+    name: ntfy
   # https://codeberg.org/wrenix/helm-charts/src/branch/main/ntfy/values.yaml
   values:
     image:
