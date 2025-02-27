@@ -29,9 +29,10 @@ spec:
       listen:
         http: :80
       auth:
+        file: /var/lib/ntfy/user.db
         defaultAccess: deny-all
-      keepaliveInterval: "45s"
-      managerInterval: "1m"
+      keepaliveInterval: 45s
+      managerInterval: 1m
       webRoot: app
       enableReservations: true
       enableSignup: false
