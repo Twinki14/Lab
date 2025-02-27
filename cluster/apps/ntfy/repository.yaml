@@ -1,7 +1,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: OCIRepository
 metadata:
-  name: wrenix-ntfy-repo
+  name: ntfy
 spec:
   interval: 24h
   url: oci://codeberg.org/wrenix/helm-charts/ntfy
