@@ -27,7 +27,7 @@ spec:
     ntfy:
       baseURL: https://ntfy.catboy.rest
       listen:
-        http: :80
+        http: :8080
       auth:
         file: /var/lib/ntfy/user.db
         defaultAccess: deny-all
@@ -78,7 +78,7 @@ spec:
     service:
       http:
         type: ClusterIP
-        port: 80
+        port: 8080
 
     ingress:
       enabled: true
