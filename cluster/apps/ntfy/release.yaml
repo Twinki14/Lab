@@ -17,14 +17,13 @@ spec:
     image:
       registry: docker.io
       repository: binwiederhier/ntfy
-      tag: v2.11.0
 
     ## @param kind The kind of workload to deploy ntfy as (`StatefulSet` or `Deployment`)
     kind: Deployment
 
     ## https://docs.ntfy.sh/config/ or https://github.com/binwiederhier/ntfy/blob/main/server/server.yml
     ntfy:
-      baseURL: https://ntfy.catboy.rest
+      baseURL: ntfy.catboy.rest
       listenHTTP: :8080
       behindProxy: true
       disallowedTopics: []
@@ -34,7 +33,7 @@ spec:
       globalTopicLimit: 100
 
       data:
-        rootPath: /var/lib/ntfy
+        rootPath: "/var/lib/ntfy"
         pvc:
           size: 5Gi
           storageClass: zfs-local-dataset
