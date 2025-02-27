@@ -10,7 +10,7 @@ spec:
       version: "10.x.x"
       sourceRef:
         kind: OCIRepository
-        name: wrenix-ntfy
+        name: wrenix-ntfy-repo
       interval: 12h
   # https://codeberg.org/wrenix/helm-charts/src/branch/main/ntfy/values.yaml
   values:
