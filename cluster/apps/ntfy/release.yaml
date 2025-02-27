@@ -1,0 +1,85 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: ntfy
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: ntfy
+      version: "0.2.x"
+      sourceRef:
+        kind: HelmRepository
+        name: ntfy-fmjstudios-repo
+      interval: 12h
+  # https://github.com/fmjstudios/helm/blob/main/charts/ntfy/values.yaml
+  values:
+    image:
+      registry: docker.io
+      repository: binwiederhier/ntfy
+      tag: v2.11.0
+
+    ## @param kind The kind of workload to deploy ntfy as (`StatefulSet` or `Deployment`)
+    kind: Deployment
+
+    ## https://docs.ntfy.sh/config/ or https://github.com/binwiederhier/ntfy/blob/main/server/server.yml
+    ntfy:
+      baseURL: https://ntfy.catboy.rest
+      listenHTTP: :8080
+      behindProxy: true
+      disallowedTopics: []
+      enableSignup: false
+      enableLogin: true
+      enableReservations: true
+      globalTopicLimit: 100
+
+      data:
+        rootPath: /var/lib/ntfy
+        pvc:
+          size: 5Gi
+          storageClass: zfs-local-dataset
+          reclaimPolicy: Delete
+
+      ## Auth configuration
+      auth:
+        defaultAccess: deny-all
+
+      ## Log configuration
+      log:
+        level: info
+        # https://github.com/binwiederhier/ntfy/blob/main/server/server.yml#L347
+        levelOverrides: ""
+        format: text
+
+    ## Ingress
+    ingress:
+      enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-issuer
+        traefik.ingress.kubernetes.io/router.entrypoints: websecure
+        traefik.ingress.kubernetes.io/router.tls: "true"
+      hosts:
+      - host: ntfy.catboy.rest
+        paths:
+        - path: /
+          pathType: Prefix
+      tls:
+      - hosts:
+        - ntfy.catboy.rest
+        secretName: ntfy-letsencrypt-cert
+
+    ## ntfy Service settings
+    service:
+      type: ClusterIP
+      ## Kubernetes Service Ports
+      ports:
+        http: 8080
+        https: 8443
+
+    resources:
+      limits:
+        cpu: 100m
+        memory: 128Mi
+      requests:
+        cpu: 100m
+      memory: 128Mi
