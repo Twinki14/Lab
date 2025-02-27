@@ -4,7 +4,6 @@ metadata:
   name: ntfy
 spec:
   interval: 12h
-  releaseName: ntfy
   chartRef:
     kind: OCIRepository
     name: wrenix-ntfy-repo
