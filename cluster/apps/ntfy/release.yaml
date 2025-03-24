@@ -60,13 +60,14 @@ spec:
     env: []
     envFrom: []
 
-    # -- set securityContext on container level
+    # -- conatiner level security context
     securityContext:
       readOnlyRootFilesystem: true
       runAsNonRoot: true
       runAsUser: 1000
       fsGroup: 1000
 
+    # -- pod level security context
     podSecurityContext:
         runAsUser: 1000
         runAsGroup: 1000
