@@ -37,22 +37,9 @@ spec:
       enableReservations: true
       enableSignup: false
       enableLogin: true
-      upstreamBaseURL: "https://ntfy.sh"
-      webPush:
-        keys:
-          create: false
-          public:
-          private:
-        file: "/data/webpush.db"
-        emailAddress: ""
+      upstreamBaseURL: https://ntfy.sh
       globalTopicLimit: 100
       behindProxy: true
-      # NTFY_STRIPE_SECRET_KEY
-      # NTFY_STRIPE_WEBHOOK_KEY
-      # NTFY_BILLING_CONTACT
-      # metrics:
-        # enable: true
-        # port: 9000
 
     ## Enable persistence using Persistent Volume Claims
     persistence:
@@ -65,9 +52,7 @@ spec:
     envFrom: []
 
     # -- set securityContext on container level
-    securityContext:
-      runAsNonRoot: true
-      runAsUser: 1000
+    securityContext: {}
       # capabilities:
       #   drop:
       #   - ALL
