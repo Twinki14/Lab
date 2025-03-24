@@ -7,4 +7,5 @@ namespace: apps
 resources:
 - gitea
 - miha
+- ntfy
 - namespace.yaml
