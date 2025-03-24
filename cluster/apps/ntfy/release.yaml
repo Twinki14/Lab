@@ -65,6 +65,7 @@ spec:
       readOnlyRootFilesystem: true
       runAsNonRoot: true
       runAsUser: 1000
+      fsGroup: 1000
 
     service:
       http:
