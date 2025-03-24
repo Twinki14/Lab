@@ -29,7 +29,7 @@ spec:
       listen:
         http: :8080
       auth:
-        file: /var/lib/ntfy/user.db
+        file: null
         defaultAccess: deny-all
       keepaliveInterval: 45s
       managerInterval: 1m
