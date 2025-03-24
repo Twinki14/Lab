@@ -28,9 +28,18 @@ spec:
       baseURL: https://ntfy.catboy.rest
       listen:
         http: :8080
+      cache:
+        file: /data/cache.db
+        duration: 12h
       auth:
-        file: null
+        file: /data/auth.db
         defaultAccess: deny-all
+      attachment:
+        cacheDir: /data/attachment.db
+        sizeLimit:
+          total: 5G
+          file: 50M
+        expireDuration: 24h
       keepaliveInterval: 45s
       managerInterval: 1m
       webRoot: app
@@ -46,19 +55,16 @@ spec:
       enabled: true
       storageClass: zfs-local-dataset
       accessMode: ReadWriteOnce
-      size: 1Gi
+      size: 25Gi
 
     env: []
     envFrom: []
 
     # -- set securityContext on container level
-    securityContext: {}
-      # capabilities:
-      #   drop:
-      #   - ALL
-      # readOnlyRootFilesystem: true
-      # runAsNonRoot: true
-      # runAsUser: 1000
+    securityContext:
+      readOnlyRootFilesystem: true
+      runAsNonRoot: true
+      runAsUser: 1000
 
     service:
       http:
